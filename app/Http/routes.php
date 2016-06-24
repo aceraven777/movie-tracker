@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function(){
-    return view('welcome');
-});
-
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'MoviesController@index');
+Route::get('movies/create', 'MoviesController@create');
+Route::post('movies', 'MoviesController@store');
+Route::get('movies/{name_slug}/edit', ['uses' => 'MoviesController@edit']);
